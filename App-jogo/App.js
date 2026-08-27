@@ -1,20 +1,54 @@
+import { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet } from 'react-native';
+
+import HomeScreen from './src/screens/HomeScreen';
+import CadastroScreen from './src/screens/CadastroScreen';
 
 export default function App() {
+  const [tela, setTela] = useState('home'); // 'home' | 'cadastro'
+  const [jogoSelecionado, setJogoSelecionado] = useState(null);
+
+  function irParaNovoJogo() {
+    setJogoSelecionado(null);
+    setTela('cadastro');
+  }
+
+  function irParaEditar(jogo) {
+    setJogoSelecionado(jogo);
+    setTela('cadastro');
+  }
+
+  function voltarParaHome() {
+    setJogoSelecionado(null);
+    setTela('home');
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
-    </View>
+
+      {tela === 'home' && (
+        <HomeScreen
+          onNovoJogo={irParaNovoJogo}
+          onEditar={irParaEditar}
+        />
+      )}
+
+      {tela === 'cadastro' && (
+        <CadastroScreen
+          jogoParaEditar={jogoSelecionado}
+          onSalvar={voltarParaHome}
+          onCancelar={voltarParaHome}
+        />
+      )}
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#f2f2f2',
   },
 });
