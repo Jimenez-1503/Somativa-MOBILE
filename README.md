@@ -96,7 +96,7 @@ Depois, o aplicativo pode ser executado utilizando um dispositivo físico com **
 ## 👥 Integrantes
 
 * **Pedro Jimenez**
-* **Nome do segundo integrante**
+* **Rafael Teixeira**
 
 ## 🎓 Projeto Integrador
 
