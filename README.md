@@ -1,5 +1,4 @@
-# Somativa-MOBILE
-# 🎮 GameList
+<h1 align="center">🎮 GameList</h1>
 
 Aplicativo mobile desenvolvido como Projeto Integrador do SENAI — Escola Ítalo Bologna.
 
